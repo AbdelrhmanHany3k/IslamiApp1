@@ -9,7 +9,7 @@ void main(){
 class Myapp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp
+    return MaterialApp(
 
       debugShowCheckedModeBanner: false,
       initialRoute: Homescreen.home,
