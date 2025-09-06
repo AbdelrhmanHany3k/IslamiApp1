@@ -37,7 +37,7 @@ class Quran extends StatelessWidget {
               return Row(
                 children:[
                   Expanded(child: Align(alignment: Alignment.centerRight,
-                      child: Icon(Icons.star,color: Color(0xFFB7935F),))),
+                      child: Icon(Icons.stars_rounded,color: Color(0xFFB7935F),))),
                   Expanded(
                     flex: 3,
                     child: Divider(
@@ -45,7 +45,7 @@ class Quran extends StatelessWidget {
                     ),
                   ),
                   Expanded(child: Align(alignment: Alignment.centerLeft,
-                      child: Icon(Icons.star,color: Color(0xFFB7935F),))),
+                      child: Icon(Icons.stars_rounded,color: Color(0xFFB7935F),))),
                ]
               );
             },

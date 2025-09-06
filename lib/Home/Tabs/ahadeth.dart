@@ -5,6 +5,10 @@ class Ahadeth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      Image.asset("assets/images/hadith_header.png", height: 227),
+      Divider(thickness: 3, color: Color(0xffB7935F)),
+      ]
+    );
   }
 }
