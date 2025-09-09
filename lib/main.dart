@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/home.dart';
+import 'package:islami/Home/Hadeth_detalis.dart';
+import 'package:islami/Home/Sura_details.dart';
+import 'package:islami/Home/home.dart';
 
 void main(){
   runApp(Myapp());
@@ -13,8 +15,10 @@ class Myapp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       initialRoute: Homescreen.home,
       routes:{
-        Homescreen.home : (context)=>const Homescreen()
-      } ,
+        Homescreen.home : (context)=> Homescreen(),
+        SuraDetails.suranames : (context)=> SuraDetails(),
+        HadethDetalis.hadethdetails:(context)=> HadethDetalis(),
+      },
     );
   }
 }
