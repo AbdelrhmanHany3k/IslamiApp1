@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/Home/Tabs/Quran.dart';
-import 'package:islami/Home/Tabs/Radio.dart';
 import 'package:islami/Home/Tabs/Sebha.dart';
 import 'package:islami/Home/Tabs/Settings.dart';
 import 'package:islami/Home/Tabs/ahadeth.dart';
@@ -21,7 +20,9 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Image.asset("assets/images/bg1x.png"),
+      Image.asset("assets/images/bg1x.png",
+      width: double.infinity,
+      fit: BoxFit.fill,),
       Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -55,11 +56,6 @@ class _HomescreenState extends State<Homescreen> {
               backgroundColor: Color(0xFFB7935F),
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage("assets/images/radio.png")),
-              label: " ",
-              backgroundColor: Color(0xFFB7935F),
-            ),
-            BottomNavigationBarItem(
               icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
               label: " ",
               backgroundColor: Color(0xFFB7935F),
@@ -79,7 +75,6 @@ class _HomescreenState extends State<Homescreen> {
   List<Widget> tabs = [
     Quran(),
     Sebha(),
-    Radiotab(),
     Ahadeth(),
     SettingsTab()];
 }

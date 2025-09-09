@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/Sura_details.dart';
+import 'package:islami/Home/Hadeth_detalis.dart';
+import 'package:islami/Home/Sura_details.dart';
 import 'package:islami/Home/home.dart';
 
 void main(){
@@ -15,7 +16,8 @@ class Myapp extends StatelessWidget{
       initialRoute: Homescreen.home,
       routes:{
         Homescreen.home : (context)=> Homescreen(),
-        SuraDetails.suranames : (context)=> SuraDetails()
+        SuraDetails.suranames : (context)=> SuraDetails(),
+        HadethDetalis.hadethdetails:(context)=> HadethDetalis(),
       },
     );
   }

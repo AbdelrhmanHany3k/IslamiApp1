@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:islami/Sura_details.dart';
+import 'package:islami/Home/Sura_details.dart';
 import 'package:islami/sura_model.dart';
 
 class Quran extends StatelessWidget {
@@ -25,7 +25,7 @@ class Quran extends StatelessWidget {
         Image.asset("assets/images/quran_header_icn.png", height: 227),
         Divider(thickness: 3, color: Color(0xffB7935F)),
         Text(
-          "Sura Names",
+          "Quran",
           textAlign: TextAlign.center,
           style: GoogleFonts.elMessiri(
               fontSize: 26, fontWeight: FontWeight.w600),
