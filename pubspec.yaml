@@ -39,6 +39,14 @@ dependencies:
   google_fonts: ^6.2.1
   provider: ^6.1.5+1
   easy_localization: ^3.0.8
+  shared_preferences: ^2.5.3
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -18,6 +18,7 @@ class ThemeBottomSheet extends StatelessWidget {
           InkWell(
             onTap: () {
               pr.changeThemeMode(ThemeMode.light);
+              Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,6 +37,7 @@ class ThemeBottomSheet extends StatelessWidget {
           InkWell(
             onTap: () {
               pr.changeThemeMode(ThemeMode.dark);
+              Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

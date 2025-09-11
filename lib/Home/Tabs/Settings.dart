@@ -46,7 +46,7 @@ class SettingsTab extends StatelessWidget {
             onTap: () {
               showModalBottomSheet(
                 context: context,
-                builder: (context) => LanguageBottomSheet(),
+                builder: (context) => const LanguageBottomSheet(),
               );
             },
             child: Container(

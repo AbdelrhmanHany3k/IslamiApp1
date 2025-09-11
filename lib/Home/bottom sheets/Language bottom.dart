@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LanguageBottomSheet extends StatelessWidget {
   const LanguageBottomSheet({super.key});
@@ -14,8 +15,10 @@ class LanguageBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           InkWell(
-            onTap: () {
+            onTap: () async {
               context.setLocale(const Locale('en'));
+              final prefs = await SharedPreferences.getInstance();
+              prefs.setString("lang", "en");
               Navigator.pop(context);
             },
             child: Row(
@@ -33,8 +36,10 @@ class LanguageBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           InkWell(
-            onTap: () {
+            onTap: () async {
               context.setLocale(const Locale('ar'));
+              final prefs = await SharedPreferences.getInstance();
+              prefs.setString("lang", "ar");
               Navigator.pop(context);
             },
             child: Row(
