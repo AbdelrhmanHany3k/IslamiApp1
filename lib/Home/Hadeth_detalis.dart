@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/Hadeth_model.dart';
+import 'package:islami/providers/Myprovider.dart';
+import 'package:provider/provider.dart';
 
 class HadethDetalis extends StatelessWidget {
   static const String hadethdetails = "hadethdetails";
 
   @override
   Widget build(BuildContext context) {
+
     final hadeth = ModalRoute.of(context)?.settings.arguments as HadethModel;
+    var provider=Provider.of<MyProvider>(context);
+
     return Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bg1x.png"),
+            image: AssetImage(provider.theme==ThemeMode.light ? "assets/images/bg1x.png"
+                :"assets/images/bg_dark.png",),
             fit: BoxFit.fill,
           ),
         ),
         child: Scaffold(
-            backgroundColor: Colors.transparent,
             appBar: AppBar(
               title:
-              Text(hadeth.title, style: GoogleFonts.elMessiri(fontSize: 24)),
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
+              Text(hadeth.title,style: Theme.of(context).textTheme.bodyLarge,),
+              iconTheme: IconThemeData(),
             ),
             body: ListView.builder(
               padding: EdgeInsets.all(16),
@@ -29,8 +32,7 @@ class HadethDetalis extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Text(
                   hadeth.content[index],
-                  style: GoogleFonts.elMessiri(fontSize: 20, height: 1.6),
-                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodySmall
                 );
               },
             ),

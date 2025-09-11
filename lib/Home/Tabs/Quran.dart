@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/Home/Sura_details.dart';
+import 'package:islami/My_theme_data.dart';
 import 'package:islami/sura_model.dart';
 
 class Quran extends StatelessWidget {
@@ -23,29 +25,28 @@ class Quran extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset("assets/images/quran_header_icn.png", height: 227),
-        Divider(thickness: 3, color: Color(0xffB7935F)),
+        Divider(thickness: 3,),
         Text(
-          "Quran",
+          "quran".tr(),
           textAlign: TextAlign.center,
-          style: GoogleFonts.elMessiri(
-              fontSize: 26, fontWeight: FontWeight.w600),
+          style:Theme.of(context).textTheme.bodyLarge,
         ),
-        Divider(thickness: 3, color: Color(0xffB7935F)),
+        Divider(thickness: 3, ),
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) {
               return Row(
                 children:[
                   Expanded(child: Align(alignment: Alignment.centerRight,
-                      child: Icon(Icons.stars_rounded,color: Color(0xFFB7935F),))),
+                      child: Icon(Icons.stars_rounded,color: primarycolor))),
                   Expanded(
                     flex: 3,
                     child: Divider(
-                    color: Color(0xFFB7935F),
+                    color: primarycolor,
                     ),
                   ),
                   Expanded(child: Align(alignment: Alignment.centerLeft,
-                      child: Icon(Icons.stars_rounded,color: Color(0xFFB7935F),))),
+                      child: Icon(Icons.stars_rounded,color: primarycolor,))),
                ]
               );
             },

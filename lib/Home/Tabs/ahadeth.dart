@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/Hadeth_model.dart';
 import 'package:islami/Home/Hadeth_detalis.dart';
+import 'package:islami/My_theme_data.dart';
 
 class Ahadeth extends StatefulWidget {
   Ahadeth({super.key});
@@ -23,14 +25,14 @@ class _AhadethState extends State<Ahadeth> {
 
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       Image.asset("assets/images/hadith_header.png", height: 219),
-      Divider(thickness: 3, color: Color(0xffB7935F)),
+      Divider(thickness: 3, color: primarycolor),
       Text(
-        "Ahadeth",
+        "ahadeth".tr(),
         textAlign: TextAlign.center,
         style: GoogleFonts.elMessiri(
             fontSize: 26, fontWeight: FontWeight.w600),
       ),
-      Divider(thickness: 3, color: Color(0xffB7935F)),
+      Divider(thickness: 3,),
       Expanded(
         child: ListView.separated(separatorBuilder: (context, index) => Divider()
           ,itemBuilder: (context, index) {

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,11 +43,9 @@ class _SebhaState extends State<Sebha> {
           child: Image.asset("assets/images/seb7a.png", height: 300),
         ),
 
-        Text(
-          "عدد التسبيحات",
+        Text("sebha".tr(),
           textAlign: TextAlign.center,
-          style:
-          GoogleFonts.elMessiri(fontSize: 24, fontWeight: FontWeight.w600),
+          style:Theme.of(context).textTheme.bodyLarge,
         ),
         const SizedBox(height: 10),
         Text(

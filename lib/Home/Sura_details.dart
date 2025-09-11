@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/My_theme_data.dart';
+import 'package:islami/providers/Myprovider.dart';
 import 'package:islami/sura_model.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   const SuraDetails({super.key});
@@ -18,30 +21,26 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as SuraModel;
+    var provider = Provider.of<MyProvider>(context);
 
     if (suralines.isEmpty) {
       loadsurafile(model.index);
     }
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/bg1x.png"),
+          image: AssetImage(provider.theme == ThemeMode.light
+              ? "assets/images/bg1x.png"
+              : "assets/images/bg_dark.png"),
           fit: BoxFit.fill,
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          title: Text(
-            model.suraname,
-            style: GoogleFonts.elMessiri(
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          centerTitle: true,
+          title: Text(model.suraname,
+              style: Theme.of(context).textTheme.bodyLarge),
+          iconTheme: IconThemeData(),
         ),
         body: suralines.isEmpty
             ? const Center(child: CircularProgressIndicator())
@@ -49,9 +48,6 @@ class _SuraDetailsState extends State<SuraDetails> {
           itemCount: suralines.length,
           itemBuilder: (context, index) {
             return Card(
-              color: const Color(0xFFEFE7DC),
-              elevation: 3,
-              margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
@@ -64,11 +60,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                       ),
                       child: Text(
                         "${index + 1}",
-                        style: GoogleFonts.elMessiri(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
                     const SizedBox(width: 12),

@@ -1,9 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/Home/Tabs/Quran.dart';
 import 'package:islami/Home/Tabs/Sebha.dart';
 import 'package:islami/Home/Tabs/Settings.dart';
 import 'package:islami/Home/Tabs/ahadeth.dart';
+import 'package:islami/My_theme_data.dart';
+import 'package:islami/main.dart';
+import 'package:islami/providers/Myprovider.dart';
+import 'package:provider/provider.dart';
 
 class Homescreen extends StatefulWidget {
   static const String home = "Homescreen";
@@ -19,8 +23,10 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     return Stack(children: [
-      Image.asset("assets/images/bg1x.png",
+      Image.asset(provider.theme==ThemeMode.light ? "assets/images/bg1x.png"
+       :"assets/images/bg_dark.png",
       width: double.infinity,
       fit: BoxFit.fill,),
       Scaffold(
@@ -28,11 +34,7 @@ class _HomescreenState extends State<Homescreen> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           centerTitle: true,
-          title: Text(
-            "Islami",
-            style: GoogleFonts.elMessiri(
-                fontSize: 30, fontWeight: FontWeight.w700),
-          ),
+          title: Text("islami".tr(),style: Theme.of(context).textTheme.bodyLarge,),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedindex,
@@ -40,30 +42,22 @@ class _HomescreenState extends State<Homescreen> {
             selectedindex = value;
             setState(() {});
           },
-          type: BottomNavigationBarType.shifting,
-          selectedItemColor: Color(0xFF242424),
-          unselectedItemColor: Color(0xFFF8F8F8),
-          backgroundColor: Color(0xFFB7935F),
           items: [
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage("assets/images/quran.png")),
               label: " ",
-              backgroundColor: Color(0xFFB7935F),
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage("assets/images/sebha.png")),
               label: " ",
-              backgroundColor: Color(0xFFB7935F),
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
               label: " ",
-              backgroundColor: Color(0xFFB7935F),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: " ",
-              backgroundColor: Color(0xFFB7935F),
             ),
           ],
         ),
